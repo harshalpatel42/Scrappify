@@ -1,0 +1,35 @@
+    
+    <!--SERVICE SECTION IMPLEMENT LATER-->
+
+    <!--FOOTER SECTION-->
+    <div class="footer__container">
+        <div class="footer__link">
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Group</h2>
+                    <a href="https://github.com/harshalpatel42" target="_blank">Harshal Patel</a>
+                    <a href="https://github.com/Hysteria8" target="_blank">Hitanshu Patel</a>
+                    <a href="https://github.com/PreetBodar" target="_blank">Preet Bodar</a>
+                    <a href="https://github.com/Aditya0135" target="_blank">Aditya Batlawala</a>
+            </div>
+                <div class="footer__link--items">
+                    <h2>What is NLP</h2>
+                    <a href="https://www.ibm.com/topics/natural-language-processing" target="_blank">Natural language processing</a>
+                </div>
+            </div>
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Explore</h2>
+                    <a href="https://youtu.be/fLvJ8VdHLA0" target="_blank">Resources</a>
+                </div>   
+                <div class="footer__link--items">
+                    <h2>About</h2>
+                    <a href="https://github.com/harshalpatel42/Harshal.git" target="_blank">Github</a>
+                    <a href="https://discord.gg/nrPwPu67" target="_blank">Discord</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--END OF FOOTER SECTION-->
+    <script src="app.js"></script>
