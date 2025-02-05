@@ -73,24 +73,32 @@ def home():
     return render_template('home.html')
 
 
-@app.route("/",methods=['POST'])
+#@app.route("/",methods=['POST'])
+@app.route("/", methods=['POST'])
 def resultpg():
     url = request.form['urlToBeSent']
-    # Split the URL at the product  part
+    print(f"URL received: {url}")
+    
+    # Split the URL at the 'p/' part
     split_url = url.split('/p/')
+    
+    # Check if the split URL contains the correct number of parts
+    if len(split_url) != 2:
+        return "Invalid URL format. Please make sure the URL contains '/p/'.", 400
 
-    # Creating  the new URL
+    # Create the new URL for product reviews
     new_url = split_url[0] + '/product-reviews/' + split_url[1]
 
     # Find the position where 'marketplace=FLIPKART' ends
     position = new_url.find('marketplace=FLIPKART') + len('marketplace=FLIPKART')
 
-    #this contains the final url in a formatted manner
+    # This contains the final URL in a formatted manner
     final_url = new_url[:position]
-    print(final_url)
+    print(f"Formatted URL: {final_url}")
 
     all_reviews = []
     num_pages = 3
+
     # Iterate through the specified number of pages
     for page_num in range(1, num_pages + 1):
         # Construct the URL for the current page
@@ -103,22 +111,23 @@ def resultpg():
         print(f"\nScraped data from Page {page_num}:")
         print(scraped_data)
 
-        # adding all of the reviews into one single list
+        # Adding all of the reviews into one single list
         all_reviews.extend(scraped_data)
 
     print("All Reviews\n")
     print(all_reviews)
 
-    rp,rn,rnu = Analyze_Sentiment(all_reviews)
+    rp, rn, rnu = Analyze_Sentiment(all_reviews)
 
-
-    data = { 'pos_num' : rp,
-             'neg_num' : rn,
-             'neu_num' : rnu
-            }
+    data = {
+        'pos_num': rp,
+        'neg_num': rn,
+        'neu_num': rnu
+    }
     print(data)
 
-    return render_template('resultpg.html', data = data)
+    return render_template('resultpg.html', data=data)
+
 
 @app.route("/home.html")
 def homeFromResult():
